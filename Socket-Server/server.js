@@ -12,8 +12,14 @@ const io = new Server(httpServer);
 io.on("connection", (socket) => {
    console.log("new user connected to our app");
 
+   socket.send("Welcome to Socket MAMO");
+   socket.on("message", (message) => {
+      console.log(message);
+   });
+
+   // disconnect the user ---
    socket.on("disconnect", (socket) => {
-      console.log("user disconnect");
+      // console.log("user disconnect");
    });
 
    // socket.on("testEvent", (data) => {
@@ -34,19 +40,6 @@ io.on("connection", (socket) => {
       socket.to(data.room).emit("showMessage", data);
    });
 });
-
-// let fifa = io.of("/worldCup");
-
-// fifa.on("connection", (socket) => {
-//   fifa.emit("worldCupEvent", "Hello fifa i am hero alom");
-// });
-// let cricket = io.of("/cricketCup");
-
-// cricket.on("connection", (socket) => {
-//   cricket.emit("cricketCupEvent", "Hello ICC i am hero alom");
-// });
-
-// data transfer with react
 
 app.get("/", (req, res) => {
    res.sendFile(__dirname + "/app.html");
