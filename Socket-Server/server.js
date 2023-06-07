@@ -13,7 +13,7 @@ io.on("connection", (socket) => {
    console.log("new user connected to our app");
 
    socket.send("Welcome to Socket MAMO");
-   socket.on("message", (message) => {
+   socket.on("textEvent", (message) => {
       console.log(message);
    });
 

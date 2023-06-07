@@ -5,17 +5,35 @@
       <title>Socket.IO</title>
    </head>
    <body>
-      <h1>Hello Bangladesh</h1>
+      <h1 style="text-align: center">Hello Bangladesh</h1>
 
+      <form onsubmit="handleSubmit(event)" style="text-align: center">
+         <input type="text" id="name" />
+         <input type="number" id="phone" />
+         <br />
+         <input type="submit" value="Submit" />
+      </form>
+
+      <!-- js -->
       <script src="/socket.io/socket.io.js"></script>
       <script>
          const socket = io();
 
+         const handleSubmit = (event) => {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get the values from the input fields
+            const nameValue = document.getElementById("name").value;
+            const phoneValue = document.getElementById("phone").value;
+            console.log(nameValue, phoneValue);
+            socket.emit("textEvent", { nameValue, phoneValue });
+
+            // You can perform further actions or send the values to a server using AJAX, for example
+         };
+
          socket.on("message", (data) => {
             console.log(data);
          });
-
-         socket.send("Hello Bangladesh---");
       </script>
    </body>
 </html>
