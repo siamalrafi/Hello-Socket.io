@@ -6,7 +6,7 @@
    </head>
    <body>
       <h1 style="text-align: center">Hello Bangladesh</h1>
-
+      <h1 id="data">Hello___</h1>
       <form onsubmit="handleSubmit(event)" style="text-align: center">
          <input type="text" id="name" />
          <input type="number" id="phone" />
@@ -17,7 +17,7 @@
       <!-- js -->
       <script src="/socket.io/socket.io.js"></script>
       <script>
-         const socket = io();
+         const socket = io("/worldCup");
 
          const handleSubmit = (event) => {
             event.preventDefault(); // Prevent the default form submission
@@ -31,7 +31,8 @@
             // You can perform further actions or send the values to a server using AJAX, for example
          };
 
-         socket.on("message", (data) => {
+         socket.on("fifaWorldCup", (data) => {
+            document.getElementById("data").innerHTML = data;
             console.log(data);
          });
       </script>

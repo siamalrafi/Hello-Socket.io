@@ -13,9 +13,11 @@ io.on("connection", (socket) => {
    console.log("new user connected to our app");
 
    socket.send("Welcome to Socket MAMO");
-   socket.on("textEvent", (message) => {
-      console.log(message);
-   });
+   // socket.on("textEvent", (message) => {
+   //    console.log(message);
+   // });
+
+   socket.emit("fifaWorldCup", "hello fifaWorldCup");
 
    // disconnect the user ---
    socket.on("disconnect", (socket) => {
@@ -26,6 +28,13 @@ io.on("connection", (socket) => {
    //   console.log(data);
 
    // });
+
+   let fifa = io.of("worldCup");
+
+   fifa.on("connection", (socket) => {
+      fifa.emit("worldCupEvent", "hello Fifa");
+   });
+
    //   socket.on("chatEvent", (data) => {
    //     console.log(data);
    //     io.emit("chatShow", data);
