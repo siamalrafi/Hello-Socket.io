@@ -30,6 +30,7 @@ function App() {
             <h1 className="h1">sender:{message}</h1>
             <h1 className="h1">Receiver: {getMessage}</h1>
          </div>
+         <br />
 
          <input onBlur={(e) => setRoom(e.target.value)} type="text" placeholder="ROom...." />
          <button onClick={hanldeRoom}>Join room</button>
