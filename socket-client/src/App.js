@@ -31,7 +31,7 @@ function App() {
             <h1 className="h1">sender:{message}</h1>
             <h1 className="h1">Receiver: {getMessage}</h1>
          </div>
-
+         {/* here is the set room for state changing */}
          <input onBlur={(e) => setRoom(e.target.value)} type="text" placeholder="ROom...." />
          <button onClick={handleRoom}>Join room</button>
          <br />
