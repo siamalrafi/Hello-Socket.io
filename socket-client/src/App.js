@@ -21,7 +21,7 @@ function App() {
    }, [socket]);
 
    // handle Room ---
-   const hanldeRoom = () => {
+   const handleRoom = () => {
       socket.emit("joinRoom", room);
    };
 
@@ -33,7 +33,7 @@ function App() {
          </div>
 
          <input onBlur={(e) => setRoom(e.target.value)} type="text" placeholder="ROom...." />
-         <button onClick={hanldeRoom}>Join room</button>
+         <button onClick={handleRoom}>Join room</button>
          <br />
          <input onBlur={(e) => setMessage(e.target.value)} type="text" placeholder="message...." />
          <br />
