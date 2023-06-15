@@ -20,6 +20,7 @@ function App() {
       });
    }, [socket]);
 
+   // handle Room ---
    const hanldeRoom = () => {
       socket.emit("joinRoom", room);
    };
