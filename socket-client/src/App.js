@@ -42,4 +42,5 @@ function App() {
    );
 }
 
+// export the App
 export default App;
